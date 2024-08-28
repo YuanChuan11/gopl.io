@@ -37,7 +37,7 @@ type Usage struct {
 	UsageDate time.Time `gorm:"column:usage_date;type:date;not null;uniqueIndex:uk_combined,priority:2;comment:用量日期" json:"usage_date"` // 用量日期
 }
 
-func (*Usage) TableName() string {
+func (usage *Usage) TableName() string {
 	if usageTableSuffix != "" {
 		return "usage" + "_" + usageTableSuffix
 	}
